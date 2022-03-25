@@ -1,13 +1,21 @@
 Rails.application.routes.draw do
 
   ##顧客
-  devise_for :customers
-  devise_scope :customer do
-    get '/customers/sign_out' => 'devise/sessions#destroy'
-  end
-  
+  devise_for :customers,skip: [:passwords], controllers: {
+  ##新規登録
+  registrations: "public/registrations",
+  ##ログイン
+  sessions: 'public/sessions'
+  }
+
   ##管理者
-  # devise_for :admin
+  # devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  devise_for :admin, skip: [:passwords] ,controllers: {
+  ##ログイン
+  sessions: "admin/sessions",
+  ##新規登録
+  registrations: "public/registrations"
+  }
   
   ##顧客コントローラ
   ##URLを変更せず、ファイル構成のみ変更

@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row row-cols-2 mt-4 justify-content-center">
+
+    <!-- 共通テンプレート ジャンル検索 -->
+    <%= render "public/homes/genres_search.html.erb"%>
+
+    <div class="col-8">
+      <P class="m-5 align-items-center">
+        ようこそ、ながのCAKEへ！<br />
+        このサイトは、ケーキ販売のECサイトになります。<br />
+        会員でない方も商品の閲覧はできますが、<br />
+        購入には会員登録が必要になります。
+      </P>
+
+      <div class="row">
+        <h1  class="col">新着商品</h1>
+      </div>
+
+      <div class="overflow-hidden">
+        <div class="row row-cols-4 mt-3 gy-2">
+          <div class="col">商品写真1</div>
+          <div class="col">商品写真2</div>
+          <div class="col">商品写真3</div>
+          <div class="col">商品写真4</div>
+    
+          <div class="col">商品名1</div>
+          <div class="col">商品名2</div>
+          <div class="col">商品名3</div>
+          <div class="col">商品名4</div>
+    
+          <div class="col">¥</div>
+          <div class="col">¥</div>
+          <div class="col">¥</div>
+          <div class="col">¥</div>
+        </div>
+      </div>
+
+      <div class="row  mt-4 justify-content-end">
+        全ての商品を見る
+      </div>
+
+    </div>
+    <!--col-8-end-->
+  </div>
+  <!--row mt-4-end-->
+</div>
+<!--container-fluid-end-->

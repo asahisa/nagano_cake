@@ -1,29 +1,81 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-8 cols-1">
+      <h4 class="col ms-5">新規会員登録</h4>
+    
+        <!-- フォームの大枠 -->
+      <%= form_with model: @customer, url: customer_session_path, class: "row d-flex justify-content-start" do |f| %>
+        <!-- 名前入力フォーム -->
+        <div class="row mt-5">
+          <label class="col-3">名前</label>
 
-<%= form_with model: @customer, url: customer_session_path do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
+          <span class="col-1">(姓)</span>
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "field col" %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <span class="col-1 offset-1">(名)</span>
+          <%= f.text_field :last_name, autocomplete: "last_name", class: "field col" %>
+        </div>
+        
+        <!-- フリガナ入力フォーム -->
+        <div class="row  mt-3">
+          <label class="col-3">フリガナ</label>
+
+          <span class="col-1">(セイ)</span>
+          <%= f.text_field :first_name_kana, autocomplete: "first_name_kana", class: "field col" %>
+  
+          <span class="col-1 offset-1">(メイ)</span>
+          <%= f.text_field :last_name_kana, autocomplete: "last_name_kana", class: "field col" %>
+        </div>
+
+        <!-- メールアドレス入力フォーム -->
+        <div class="row mt-3">
+          <label class="col-4 ">メールアドレス</label>
+          <%= f.email_field :email, autocomplete: "email", class: "col-3" %>
+        </div>
+
+        <!-- 郵便番号入力フォーム -->
+        <div class="row mt-3">
+          <span class="col-4">郵便番号 (ハイフン無し)</span>
+          <%= f.text_field :postal_code, autocomplete: "postal_code", class: "col-3" %>
+        </div>
+
+        <!-- 住所入力フォーム -->
+        <div class="row mt-3">
+          <span class="col-4">住所</span>
+          <%= f.text_field :address, autocomplete: "address", class: "col-8" %>
+        </div>
+
+        <!-- 電話番号入力フォーム -->
+        <div class="row mt-3">
+          <span class="col-4">電話番号 (ハイフン無し)</span>
+          <%= f.text_field :telephone_number, autocomplete: "telephone_number", class: "col-3" %>
+        </div>
+
+        <!-- パスワード入力フォーム -->
+        <div class="row mt-3">
+          <% if @minimum_password_length %>
+          <span class="col-4">パスワード(６文字以上)</span>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "col-3" %>
+        </div>
+
+        <!-- パスワード確認フォーム -->
+        <div class="row mt-3">
+          <span class="col-4">パスワード(確認)</span>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-3" %>
+        </div>
+
+        <!-- 新規登録 -->
+        <div class="row mt-3 actions">
+          <%= f.submit "新規登録", class: "col-2 offset-4 justify-content-center btn btn-success btn-sm btn-block sign_up" %>
+        </div>
+      <% end %>
+
+      <h4 class="col ms-5 mt-5">既に登録済みの方</h4>
+      <p class="col offset-1 mt-3">
+        <%= link_to "こちら", new_customer_session_path %>　からログインしてください。
+      </p>
+      
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+</div>

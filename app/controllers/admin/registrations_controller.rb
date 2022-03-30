@@ -59,4 +59,18 @@ class Admin::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  
+  ## コントローラー実行前に処理 =>  protected
+  before_action :configure_permitted_parameters
+  
+  
+  private
+
+  def configure_permitted_parameters
+    ## ユーザー登録時, nameデータ操作を許可
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :password_confirmation])
+  end
+  
+  
+  
 end

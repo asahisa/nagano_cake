@@ -8,14 +8,14 @@ Rails.application.routes.draw do
   sessions: 'public/sessions'
   }
 
-  ##管理者
-  # devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-  devise_for :admin, skip: [:passwords] ,controllers: {
-  ##ログイン
-  sessions: "admin/sessions",
-  ##新規登録
-  registrations: "public/registrations"
-  }
+  # ##管理者
+  # # devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  # devise_for :admin, skip: [:passwords] ,controllers: {
+  # ##ログイン
+  # sessions: "admin/sessions",
+  # ##新規登録
+  # registrations: "public/registrations"
+  # }
   
   ##顧客コントローラ
   ##URLを変更せず、ファイル構成のみ変更
@@ -56,26 +56,26 @@ Rails.application.routes.draw do
   end
 
 
-  ##管理者コントローラ
-  ##URL、ファイル構成共に変更
-  namespace :admin do
+  # ##管理者コントローラ
+  # ##URL、ファイル構成共に変更
+  # namespace :admin do
 
-    ##トップページ
-    root to: "homes#top"
+  #   ##トップページ
+  #   root to: "homes#top"
 
-    ##item
-    ##自動作成。destroyのみ除外
-    resources :items, except: [ :destroy ]
+  #   ##item
+  #   ##自動作成。destroyのみ除外
+  #   resources :items, except: [ :destroy ]
 
-    ##customer
-    ##自動作成。URL内にid含む
-    resources :customers, only: [ :index, :show, :edit, :update ]
+  #   ##customer
+  #   ##自動作成。URL内にid含む
+  #   resources :customers, only: [ :index, :show, :edit, :update ]
 
-    ##order
-    ##自動作成。URL内にid含む
-    resources :orders, only: [ :show ]
+  #   ##order
+  #   ##自動作成。URL内にid含む
+  #   resources :orders, only: [ :show ]
 
-  end
+  # end
 
 
 end

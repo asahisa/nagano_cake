@@ -38,12 +38,15 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  ## ログイン後のリダイレクト先
+  def after_sign_in_path_for(resource)
+    mypage_path
+  end
 
   ## ユーザー情報編集後のリダイレクト先
   def after_update_path_for(resource)
     mypage_path
   end
-
 
 
   protected

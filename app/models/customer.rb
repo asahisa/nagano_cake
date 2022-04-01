@@ -12,4 +12,9 @@ class Customer < ApplicationRecord
 	##配送先id　任意
 # 	has_many :addresses
 
+ # is_deletedがfalseならtrueを返すようにしている
+  def active_for_authentication?
+    super && (is_active == false)
+  end
+
 end

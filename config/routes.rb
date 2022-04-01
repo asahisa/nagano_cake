@@ -32,11 +32,11 @@ Rails.application.routes.draw do
     get "/customers/confrm" => "customers#confrm", as: "confrm_customer"
     ##退会ステータス
     patch "/customers/status" => "customers#status", as: "status_customer"
-    ##自動作成。URL内にid含めない
+    ##URL内にid含めない
     resource :customers, only: [ :edit, :update ]
 
     ##item
-    ##自動作成。URL内にid含む
+    ##URL内にid含む
     resources :items, only: [ :index, :show ]
 
     ##cart_item
@@ -50,7 +50,7 @@ Rails.application.routes.draw do
     post "/orders/confirm" => "/orders#confirm", as: "confirm_order"
     ##注文完了
     get "/orders/thanks" => "/orders#thanks", as: "thanks_order"
-    ##自動作成。id含む
+    ##URL内にid含む
     resources :orders, only: [ :new, :create, :index, :show ]
 
   end

@@ -8,13 +8,13 @@ class ApplicationController < ActionController::Base
   # add_flash_types :success, :info, :warning, :danger
 
   ## サインイン後のリダイレクト先
-  def after_sign_in_path_for(resource)
-    about_path
-  end
+  # def after_sign_in_path_for(resource)
+  #   about_path
+  # end
 
-  ## サインアウト後のリダイレクト先
-  def after_sign_out_path_for(resource)
-    "/"
-  end
+  # ## サインアウト後のリダイレクト先
+  # def after_sign_out_path_for(resource)
+  #   "/"
+  # end
 
 end
